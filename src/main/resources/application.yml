@@ -1,0 +1,46 @@
+spring:
+  profiles:
+    active: local
+---
+server:
+  port: 8082
+  
+spring:
+  config:
+    activate:
+      on-profile: 
+      - local
+  data:
+    mongodb:
+      uri: 
+      host: localhost
+      port: 27017
+      database: trail
+#      username: admin
+#      password: password
+#      authentication-database: admin
+      
+---
+spring:
+  config:
+    activate:
+      on-profile: 
+      - non-prod
+  data:
+    mongodb:
+      uri: 
+      host: localhost
+      port: 27017
+      database: localdb
+---
+spring:
+  config:
+    activate:
+      on-profile: 
+      - prod
+  data:
+    mongodb:
+      uri: 
+      host: localhost
+      port: 27017
+      database: localdb      
